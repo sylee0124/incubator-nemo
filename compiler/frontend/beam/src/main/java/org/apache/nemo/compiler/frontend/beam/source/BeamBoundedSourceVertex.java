@@ -132,7 +132,7 @@ public final class BeamBoundedSourceVertex<O> extends SourceVertex<WindowedValue
   private static final class BoundedSourceReadable<T> implements Readable<WindowedValue<T>> {
     private final BoundedSource<T> boundedSource;
     private boolean finished = false;
-    private BoundedSource.BoundedReader<T> reader;
+    private transient BoundedSource.BoundedReader<T> reader;
 
     /**
      * Constructor of the BoundedSourceReadable.
